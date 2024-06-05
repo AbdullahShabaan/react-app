@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { HashRouter, Route, Routes, Link } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import AdoptPet from "./Contexts/AdoptPet";
@@ -22,7 +22,7 @@ const queryClient = new QueryClient({
 function App() {
   const adopted = useState(null);
   return (
-    <BrowserRouter>
+    <HashRouter>
       <AdoptPet.Provider value={adopted}>
         <QueryClientProvider client={queryClient}>
           <Suspense
@@ -46,7 +46,7 @@ function App() {
           </Suspense>
         </QueryClientProvider>
       </AdoptPet.Provider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
